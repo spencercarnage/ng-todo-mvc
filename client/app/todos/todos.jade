@@ -1,0 +1,32 @@
+header#header
+    h1 todos
+      |   
+      input#new-todo(ng-model='description', placeholder='What needs to be done?', add='')
+    section#main
+      div(todos-mark-all-as-completed='todosCtrl.markAllAsCompleted(completed)', ng-if='todosCtrl.todoList.length')
+      |   
+      label(for='toggle-all') Mark all as complete
+      |   
+      ul#todo-list
+        li(ng-repeat='todo in todosCtrl.todoList track by todo.id', todo-destroy='todosCtrl.destroy(todo)', ng-class='{completed: todo.completed, editing: todo.editing}')
+          div(todo='todo')
+    footer#footer(ng-show='todosCtrl.totalCount')
+      span#todo-count
+        strong {{todosCtrl.remainingCount}}
+        |         
+        span(ng-pluralize='', count='todosCtrl.remainingCount', when="{'one': 'item', 'other': 'items'}")
+        |   left
+      |   
+      ul#filters
+        li
+          a(ng-class="{selected: todosCtrl.isStateActive('all')}", ui-sref='all') All
+        |     
+        li
+          a(ng-class="{selected: todosCtrl.isStateActive('active')}", ui-sref='active') Active
+        |     
+        li
+          a(ng-class="{selected: todosCtrl.isStateActive('completed')}", ui-sref='completed') Completed
+      |   
+      |   
+      button#clear-completed(ng-if='todosCtrl.completedCount', ng-click='todosCtrl.clearCompleted()') Clear completed ({{todosCtrl.completedCount}})
+
