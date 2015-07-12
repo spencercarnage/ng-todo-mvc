@@ -1,0 +1,17 @@
+.view
+  input.toggle(
+    type='checkbox',
+    ng-checked='todo.completed',
+    ng-model='todo.completed'
+  )
+
+  label(ng-dblclick='todo.editing = !todo.editing') {{todo.description}}
+
+  button.destroy(ng-click='todosCtrl.destroy(todo.id)')
+
+  input.edit(
+    ng-if='todo.editing',
+    value='{{todo.description}}',
+    todos-edit='todo',
+    ng-model='todo.description'
+  )
