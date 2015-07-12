@@ -27,5 +27,3 @@ function config ($stateProvider, $urlRouterProvider) {
 }
 
 config.$inject = ['$stateProvider', '$urlRouterProvider'];
-
-angular.module('todos').config(config);

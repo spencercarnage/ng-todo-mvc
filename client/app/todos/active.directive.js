@@ -20,4 +20,3 @@ function addDirective(keyEnter, todo) {
 
 addDirective.$inject = ['keyEnter', 'todo'];
 
-angular.module('todos').directive('add', addDirective);

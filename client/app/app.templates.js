@@ -6,11 +6,6 @@ function appTemplatesRunBlock ($templateCache) {
   );
 
 
-  $templateCache.put('/todo/markAllAsCompleted.html',
-    "<input id=\"toggle-all\" type=\"checkbox\"/>"
-  );
-
-
   $templateCache.put('/todos/markAllAsCompleted.html',
     "<input id=\"toggle-all\" type=\"checkbox\"/>"
   );

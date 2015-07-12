@@ -4,7 +4,7 @@ import {keyEnter} from './keyEnter.service';
 
 const utilsAppName = 'TodoMVC.utils';
 
-require('angular')
+angular
   .module(utilsAppName, [])
   
   // Services

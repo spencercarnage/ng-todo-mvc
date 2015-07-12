@@ -83,6 +83,11 @@ module.exports = function(grunt) {
           livereload: true
         }
       }
+    },
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js'
+      }
     }
   });
 
@@ -93,6 +98,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-angular-templates');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-karma');
 
   // Default task(s).
   grunt.registerTask('default', [
@@ -101,6 +107,7 @@ module.exports = function(grunt) {
     'jade',
     'ngtemplates',
     'browserify',
+    'karma',
     'connect',
     'watch'
   ]);
