@@ -56,32 +56,52 @@ module.exports = function(grunt) {
         files: 'client/app/app.css',
         tasks: ['copy:css']
       },
+      index: {
+        files: ['client/app/index.html'],
+        tasks: ['copy:index']
+      },
       jade: {
         files: ['client/app/**/*.jade'],
         tasks: ['jade', 'ngtemplates']
       }
     },
+    clean: ['public/', 'tmp/'],
     copy: {
+      index: {
+        src: 'client/app/index.html',
+        dest: 'public/index.html'
+      },
       css: {
         src: 'client/app/app.css',
         dest: 'public/css/app.css'
       }
+    },
+    connect: {
+      app: {
+        options: {
+          base: 'public',
+          livereload: true
+        }
+      }
     }
   });
 
-  // Load the plugin that provides the 'uglify' task.
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-angular-templates');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
   // Default task(s).
   grunt.registerTask('default', [
+    'clean',
     'copy',
     'jade',
     'ngtemplates',
     'browserify',
+    'connect',
     'watch'
   ]);
 
