@@ -50,7 +50,7 @@ module.exports = function(grunt) {
     watch: {
       js: {
         files: ['client/app/**/*.js'],
-        tasks: ['browserify']
+        tasks: ['browserify', 'karma:unit']
       },
       css: {
         files: 'client/app/app.css',

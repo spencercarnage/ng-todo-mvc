@@ -6,7 +6,6 @@ describe('add directive', function () {
       return jasmine.createSpy('keyEnterSpy').and.callFake($delegate);
     });
   }));
-  beforeEach(angular.mock.module('TodoMVC.utils'));
 
   beforeEach(inject(function ($injector) {
     this.$compile = $injector.get('$compile');

@@ -26,16 +26,16 @@ function Todos () {
   }
 
   this.getCompleted = function () {
-    return this._todos.filter(function(todo) {
-      if (todo.completed) {
-        return todo;
-      }
-    });
-  }
+    return this._getTodosByState('completed', true);
+  };
 
   this.getActive = function () {
+    return this._getTodosByState('completed', false);
+  };
+
+  this._getTodosByState = function (key, state) {
     return this._todos.filter(function(todo) {
-      if (!todo.completed) {
+      if (todo[key] === state) {
         return todo;
       }
     });
@@ -43,8 +43,8 @@ function Todos () {
 
   this.clearCompleted = function () {
     for (var i = this._todos.length - 1; i >= 0; i--) {
-      if (todos[i].completed) {
-        todos.splice(i, 1);
+      if (this._todos[i].completed) {
+        this._todos.splice(i, 1);
       }
     }
   };
