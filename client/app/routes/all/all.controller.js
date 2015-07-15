@@ -1,11 +1,9 @@
 'use strict';
 
-class AllController {
-  constructor (todos) {
-    this.todoList = todos.getAll();
-  }
+function AllController (todos) {
+  this.todoList = todos.getAll();
 }
 
 AllController.$inject = ['todos'];
 
-export { AllController };
+angular.module('TodoMVC').controller('AllController', AllController);

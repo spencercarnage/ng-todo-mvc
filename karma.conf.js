@@ -10,15 +10,11 @@ module.exports = function (config) {
     browsers: ['Chrome'],
     singleRun: false,
     browserify: {
-      debug: true,
-      transform: [
-        ['babelify', {
-          optional: 'runtime'
-        }]
-      ]
+      debug: true
     },
     files: [
       'client/app/app.js',
+      'client/app/utils/crossBrowser_initKeyboardEvent.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'client/app/**/*.spec.js'
     ]

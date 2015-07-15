@@ -26,4 +26,9 @@ function config ($stateProvider, $urlRouterProvider) {
     });
 }
 
-config.$inject = ['$stateProvider', '$urlRouterProvider'];
+config.$inject = [
+  '$stateProvider',
+  '$urlRouterProvider'
+];
+
+angular.module('TodoMVC').config(config);

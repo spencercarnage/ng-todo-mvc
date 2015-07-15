@@ -1,6 +1,6 @@
 'use strict';
 
-export function todosDirective () {
+function todosDirective () {
   return {
     scope: {
       todoList: '=todos'
@@ -11,3 +11,5 @@ export function todosDirective () {
     templateUrl: '/todos/todos.html'
   }
 }
+
+angular.module('TodoMVC').directive('todos', todosDirective);

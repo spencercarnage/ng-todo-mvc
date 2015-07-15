@@ -1,52 +1,53 @@
 'use strict';
 
-export class TodosController {
-  constructor (todos, $state) {
-    this.todos = todos;
-    this.$state = $state;
+function TodosController (todos, $state) {
+  this.todos = todos;
+  this.$state = $state;
 
-    Object.defineProperties(this, {
-      'remainingCount': {
-        get: function () {
-          return todos.remainingCount;
-        }
-      },
-      'completedCount': {
-        get: function () {
-          return todos.completedCount;
-        }
-      },
-      totalCount: {
-        get: function () {
-          return todos.getAll().length;
-        }
+  Object.defineProperties(this, {
+    'remainingCount': {
+      get: function () {
+        return todos.remainingCount;
       }
-    });
-  }
-
-  toggleTodoDone (todo) {
-    todos.completed = !todos.completed;
-  }
-
-  add (description) {
-    this.todos.add(description);
-  }
-
-  clearCompleted () {
-    this.todos.clearCompleted();
-  }
-
-  destroy (id) {
-    this.todos.destroy(id);
-  }
-
-  markAllAsCompleted (completed) {
-    this.todos.markAllAsCompleted(completed);
-  }
-
-  isStateActive (state) {
-    return this.$state.is(state);
-  }
+    },
+    'completedCount': {
+      get: function () {
+        return todos.completedCount;
+      }
+    },
+    totalCount: {
+      get: function () {
+        return todos.getAll().length;
+      }
+    }
+  });
 }
 
+TodosController.prototype.toggleTodoDone = function (todo) {
+  todo.completed = !todo.completed;
+};
+
+TodosController.prototype.add = function (description) {
+  this.todos.add(description);
+};
+
+TodosController.prototype.clearCompleted = function () {
+  this.todos.clearCompleted();
+};
+
+TodosController.prototype.destroy = function (id) {
+  this.todos.destroy(id);
+};
+
+TodosController.prototype.markAllAsCompleted = function (completed) {
+  this.todos.markAllAsCompleted(completed);
+};
+
+TodosController.prototype.isStateActive = function (state) {
+  return this.$state.is(state);
+};
+
+
 TodosController.$inject = ['todos', '$state'];
+
+angular.module('TodoMVC').controller('TodosController', TodosController);

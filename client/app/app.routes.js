@@ -1,6 +1,6 @@
 'use strict';
 
-export function appRoutesConfig ($stateProvider, $urlRouterProvider) {
+function appRoutesConfig ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
@@ -30,3 +30,5 @@ appRoutesConfig.$inject = [
   '$stateProvider',
   '$urlRouterProvider'
 ];
+
+angular.module('TodoMVC').config(appRoutesConfig);

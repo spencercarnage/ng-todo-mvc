@@ -1,15 +1,13 @@
 'use strict';
 
-export class Todos {
-  constructor () {
-    this._todos = [];
-  }
+function Todos () {
+  this._todos = [];
 
-  getAll () {
+  this.getAll = function () {
     return this._todos;
   }
 
-  add (description) {
+  this.add = function (description) {
     this._todos.push({
       id: Date.now(),
       description: description,
@@ -18,7 +16,7 @@ export class Todos {
     });
   }
 
-  destroy (id) {
+  this.destroy = function (id) {
     for (var i = 0, l = this._todos.length; i < l; i++) {
       if (this._todos[i].id === id) {
         this._todos.splice(i, 1);
@@ -27,7 +25,7 @@ export class Todos {
     }
   }
 
-  getCompleted () {
+  this.getCompleted = function () {
     return this._todos.filter(function(todo) {
       if (todo.completed) {
         return todo;
@@ -35,7 +33,7 @@ export class Todos {
     });
   }
 
-  getActive () {
+  this.getActive = function () {
     return this._todos.filter(function(todo) {
       if (!todo.completed) {
         return todo;
@@ -43,7 +41,7 @@ export class Todos {
     });
   };
 
-  clearCompleted () {
+  this.clearCompleted = function () {
     for (var i = this._todos.length - 1; i >= 0; i--) {
       if (todos[i].completed) {
         todos.splice(i, 1);
@@ -51,13 +49,13 @@ export class Todos {
     }
   };
 
-  markAllAsCompleted (completed) {
+  this.markAllAsCompleted = function (completed) {
     this._todos.forEach(function(todo, i) {
       todo.completed = completed;
     });
   }
 
-  getRemainingCount () {
+  this.getRemainingCount = function () {
     let remaining = 0;
 
     this._todos.forEach(function(todo, i) {
@@ -69,9 +67,10 @@ export class Todos {
     return remaining;
   }
 
-  getCompletedCount () {
+  this.getCompletedCount = function () {
     const remainingCount = this.getRemainingCount();
     return this._todos.length - remainingCount;
   }
 }
 
+angular.module('TodoMVC').service('todos', Todos);

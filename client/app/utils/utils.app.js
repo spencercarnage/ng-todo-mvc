@@ -1,15 +1,5 @@
 'use strict';
 
-import {keyEnter} from './keyEnter.service';
-
-const utilsAppName = 'TodoMVC.utils';
-
-angular
-  .module(utilsAppName, [])
-  
-  // Services
-  .service('TodoMVC.utils.keyEnter', keyEnter)
-;
-
-
-export { utilsAppName };
+angular.module('TodoMVC.utils', []);
+require('./keyEnter.service');
+module.exports = 'TodoMVC.utils';

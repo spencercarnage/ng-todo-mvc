@@ -27,12 +27,12 @@ module.exports = function(grunt) {
           return url.replace('tmp/templates/', '/');
         },
         bootstrap: function (module, script) {
-          return 'function appTemplatesRunBlock ($templateCache) {\n' +
-          script + '\n' +
-          '}\n' + 
-          'appTemplatesRunBlock.$inject = [\'$templateCache\'];\n' +
-          'const appTemplatesModuleName = \'app.templates\';\n' +
-          'export {appTemplatesRunBlock, appTemplatesModuleName};';
+          return [
+            'angular.module("TodoMVC").run(["$templateCache", ',
+            'function ($templateCache) {\n',
+            script + '\n',
+            '}]);\n'
+          ].join('')
         }
       }
     },

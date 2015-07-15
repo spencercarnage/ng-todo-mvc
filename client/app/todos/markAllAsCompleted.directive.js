@@ -1,6 +1,6 @@
 'use strict';
 
-export function markAllAsCompletedDirective () {
+function markAllAsCompletedDirective () {
   return {
     replace: true,
     templateUrl: '/todos/markAllAsCompleted.html',
@@ -18,3 +18,5 @@ export function markAllAsCompletedDirective () {
     }
   };
 };
+
+angular.module('TodoMVC').directive('markAllAsCompleted', markerAllAsCompletedDirective);
