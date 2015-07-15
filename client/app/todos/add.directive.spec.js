@@ -20,7 +20,6 @@ describe('add directive', function () {
 
   describe('structure', function () {
     beforeEach(function () {
-      console.log('hey');
       this.element = angular.element('<input add=""/>');
       this.element = this.$compile(this.element)(this.scope);
       this.scope.$apply();
