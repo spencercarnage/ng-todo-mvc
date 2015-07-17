@@ -8,6 +8,9 @@ function appRoutesConfig ($stateProvider, $urlRouterProvider) {
       url: '/',
       controller: 'AllController',
       controllerAs: 'allCtrl',
+      resolve: {
+        todos: 'todos'
+      },
       templateUrl: '/routes/all/index.html'
     })
 
@@ -15,6 +18,9 @@ function appRoutesConfig ($stateProvider, $urlRouterProvider) {
       url: '/done',
       controller: 'DoneController',
       controllerAs: 'doneCtrl',
+      resolve: {
+        todos: 'todos'
+      },
       templateUrl: '/routes/done/done.html'
     })
     
@@ -22,6 +28,9 @@ function appRoutesConfig ($stateProvider, $urlRouterProvider) {
       url: '/active',
       controller: 'ActiveController',
       controllerAs: 'activeCtrl',
+      resolve: {
+        todos: 'todos'
+      },
       templateUrl: '/routes/active/active.html'
     })
 }

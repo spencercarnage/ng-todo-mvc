@@ -3,6 +3,7 @@
 function TodosController (todos, $state) {
   this.todos = todos;
   this.$state = $state;
+  this.todoList = todos.getAll();
 
   Object.defineProperties(this, {
     'remainingCount': {

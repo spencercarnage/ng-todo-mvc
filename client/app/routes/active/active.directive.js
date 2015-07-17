@@ -12,6 +12,6 @@ function activeDirective () {
   }
 }
 
-activeDirective.$inject = ['todo'];
+activeDirective.$inject = [];
 
-angular.module('todos').directive('active', activeDirective);
+angular.module('TodoMVC').directive('active', activeDirective);

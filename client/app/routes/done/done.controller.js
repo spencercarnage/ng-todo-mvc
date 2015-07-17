@@ -1,17 +1,14 @@
 'use strict';
 
-function DoneController (todo) {
-  this.todoList = todo.getDone();
-  
-  Object.defineProperty(this, 'todo', {
-    value: todo
-  });
+function DoneController (todos) {
+  this.todoList = todos.getDone();
+  this.todos = todos;
 }
 
 DoneController.prototype.getDone = function () {
-  return this.todo.getDone();
+  return this.todos.getDone();
 };
 
-DoneController.$inject = ['todo'];
+DoneController.$inject = ['todos'];
 
-angular.module('todos').controller('DoneController', DoneController);
+angular.module('TodoMVC').controller('DoneController', DoneController);

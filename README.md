@@ -6,3 +6,10 @@ TodoMVC. What started as a [sloppy Plunker](http://plnkr.co/edit/NV2e5a0DkAAldaL
 has turned in this glorious mess of a half-cocked, never-been-kissed work-in-progress. 
 Major refactors along with tests are on their way. A lot of things are broken so
 don't expect this to work at all.
+
+To Do:
+
+* better names; everything is "todo" or "todos"
+* improve folder structure
+* more tests
+* test coverage
