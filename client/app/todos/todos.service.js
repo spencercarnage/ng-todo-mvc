@@ -12,7 +12,7 @@ function Todos () {
       id: Date.now(),
       description: description,
       editing: false,
-      completed: false
+      done: false
     });
   }
 
@@ -25,12 +25,12 @@ function Todos () {
     }
   }
 
-  this.getCompleted = function () {
-    return this._getTodosByState('completed', true);
+  this.getDone = function () {
+    return this._getTodosByState('done', true);
   };
 
   this.getActive = function () {
-    return this._getTodosByState('completed', false);
+    return this._getTodosByState('done', false);
   };
 
   this._getTodosByState = function (key, state) {
@@ -41,35 +41,31 @@ function Todos () {
     });
   };
 
-  this.clearCompleted = function () {
+  this.clearDone = function () {
     for (var i = this._todos.length - 1; i >= 0; i--) {
-      if (this._todos[i].completed) {
+      if (this._todos[i].done) {
         this._todos.splice(i, 1);
       }
     }
   };
 
-  this.markAllAsCompleted = function (completed) {
+  this.setDoneStatusForAll = function (done) {
     this._todos.forEach(function(todo, i) {
-      todo.completed = completed;
+      todo.done = done;
     });
-  }
+  };
 
-  this.getRemainingCount = function () {
-    let remaining = 0;
-
-    this._todos.forEach(function(todo, i) {
-      if (!todo.completed) {
-        ++remaining;
+  this.getPendingCount = function () {
+    return this._todos.reduce(function(pending, todo) {
+      if (!todo.done) {
+        ++pending;
       }
-    });
-
-    return remaining;
+      return pending;
+    }, 0);
   }
 
-  this.getCompletedCount = function () {
-    const remainingCount = this.getRemainingCount();
-    return this._todos.length - remainingCount;
+  this.getDoneCount = function () {
+    return this._todos.length - this.getPendingCount();
   }
 }
 
