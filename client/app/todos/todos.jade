@@ -9,8 +9,18 @@ header#header
 
 section#main
   div(
-    todos-mark-all-as-completed='todosCtrl.markAllAsCompleted(completed)',
+    todos-mark-all-as-done='todosCtrl.markAllAsDone(done)',
     ng-if='todosCtrl.todoList.length'
+  )
+
+  //-
+    div(
+      todos-mark-all-as-done='todosCtrl.markAllAsDone(done)',
+      ng-if='todosCtrl.todoList.length'
+    )
+  input#toggle-all(
+    type="checkbox"
+    ng-click="todosCtrl.markAllAsDone(true)"
   )
 
   label(for='toggle-all') Mark all as complete
@@ -19,7 +29,7 @@ section#main
     li(
       ng-repeat='todo in todosCtrl.todoList track by todo.id',
       todo-destroy='todosCtrl.destroy(todo)',
-      ng-class='{completed: todo.completed, editing: todo.editing}'
+      ng-class='{done: todo.done, editing: todo.editing}'
     )
       div(todo='todo')
 
@@ -48,11 +58,11 @@ footer#footer(ng-show='todosCtrl.totalCount')
 
     li
       a(
-        ng-class="{selected: todosCtrl.isStateActive('completed')}",
-        ui-sref='completed'
-      ) Completed
+        ng-class="{selected: todosCtrl.isStateActive('done')}",
+        ui-sref='done'
+      ) Done
 
-  button#clear-completed(
-    ng-if='todosCtrl.completedCount',
-    ng-click='todosCtrl.clearCompleted()'
-  ) Clear completed ({{todosCtrl.completedCount}})
+  button#clear-done(
+    ng-if='todosCtrl.doneCount',
+    ng-click='todosCtrl.clearDone()'
+  ) Clear done ({{todosCtrl.doneCount}})

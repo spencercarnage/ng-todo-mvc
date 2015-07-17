@@ -11,18 +11,18 @@ function appRoutesConfig ($stateProvider, $urlRouterProvider) {
       templateUrl: '/routes/all/index.html'
     })
 
-    .state('completed', {
-      url: '/completed',
-      controller: 'CompletedController',
-      controllerAs: 'completedCtrl',
-      templateUrl: 'public/templates/completed.html'
+    .state('done', {
+      url: '/done',
+      controller: 'DoneController',
+      controllerAs: 'doneCtrl',
+      templateUrl: '/routes/done/done.html'
     })
     
     .state('active', {
       url: '/active',
       controller: 'ActiveController',
       controllerAs: 'activeCtrl',
-      templateUrl: 'public/templates/active.html'
+      templateUrl: '/routes/active/active.html'
     })
 }
 

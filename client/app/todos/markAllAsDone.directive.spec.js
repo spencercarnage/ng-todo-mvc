@@ -1,6 +1,6 @@
 'use strict';
 
-describe('add directive', function () {
+describe('markAllAsDone directive', function () {
   beforeEach(angular.mock.module('TodoMVC', function ($provide) {
     $provide.decorator('TodoMVC.utils.keyEnter', function ($delegate) {
       return jasmine.createSpy('keyEnterSpy').and.callFake($delegate);
@@ -36,3 +36,4 @@ describe('add directive', function () {
     });
   });
 });
+
