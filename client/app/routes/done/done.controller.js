@@ -1,14 +1,18 @@
 'use strict';
 
-function DoneController (todos) {
-  this.todoList = todos.getDone();
-  this.todos = todos;
+var BaseController = require('../base.controller');
+
+function DoneController (todos, $state, $scope) {
+  BaseController.call(this, todos, $state, $scope);
 }
 
-DoneController.prototype.getDone = function () {
-  return this.todos.getDone();
+DoneController.prototype = Object.create(BaseController);
+DoneController.prototype.constructor = DoneController;
+
+DoneController.prototype.setTodos = function () {
+  this.todoList = this.todos.getDone();
 };
 
-DoneController.$inject = ['todos'];
+DoneController.$inject = ['todos', '$state', '$scope'];
 
 angular.module('TodoMVC').controller('DoneController', DoneController);

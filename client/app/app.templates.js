@@ -1,8 +1,23 @@
 angular.module("TodoMVC").run(["$templateCache", function ($templateCache) {
   'use strict';
 
+  $templateCache.put('/app.html',
+    "<section id=\"todoapp\" todos=\"mainCtrl.todoList\"></section>"
+  );
+
+
+  $templateCache.put('/routes/active/index.html',
+    "<section id=\"todoapp\" todos=\"activeCtrl.todoList\"></section>"
+  );
+
+
   $templateCache.put('/routes/all/index.html',
     "<section id=\"todoapp\" todos=\"allCtrl.todoList\"></section>"
+  );
+
+
+  $templateCache.put('/routes/done/index.html',
+    "<section id=\"todoapp\" todos=\"doneCtrl.todoList\"></section>"
   );
 
 

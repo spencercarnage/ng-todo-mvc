@@ -7,31 +7,31 @@ function appRoutesConfig ($stateProvider, $urlRouterProvider) {
     .state('all', {
       url: '/',
       controller: 'AllController',
-      controllerAs: 'allCtrl',
+      controllerAs: 'mainCtrl',
       resolve: {
         todos: 'todos'
       },
-      templateUrl: '/routes/all/index.html'
+      templateUrl: '/app.html'
     })
 
     .state('done', {
       url: '/done',
       controller: 'DoneController',
-      controllerAs: 'doneCtrl',
+      controllerAs: 'mainCtrl',
       resolve: {
         todos: 'todos'
       },
-      templateUrl: '/routes/done/done.html'
+      templateUrl: '/app.html'
     })
     
     .state('active', {
       url: '/active',
       controller: 'ActiveController',
-      controllerAs: 'activeCtrl',
+      controllerAs: 'mainCtrl',
       resolve: {
         todos: 'todos'
       },
-      templateUrl: '/routes/active/active.html'
+      templateUrl: '/app.html'
     })
 }
 

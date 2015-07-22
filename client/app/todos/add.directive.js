@@ -2,9 +2,9 @@
 
 function addDirective (keyEnter) {
   return {
-    controller: 'TodosController',
-    controllerAs: 'todosCtrl',
-    bindToController: true,
+    //controller: 'TodosController',
+    //controllerAs: 'todosCtrl',
+    //bindToController: true,
     link: function(scope, element, attrs) {
       element.on('keypress', function(e) {
         keyEnter(e, element, function() {

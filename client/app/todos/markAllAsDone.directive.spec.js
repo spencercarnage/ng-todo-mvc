@@ -1,6 +1,6 @@
 'use strict';
 
-describe('markAllAsDone directive', function () {
+xdescribe('markAllAsDone directive', function () {
   beforeEach(angular.mock.module('TodoMVC', function ($provide) {
     $provide.decorator('TodoMVC.utils.keyEnter', function ($delegate) {
       return jasmine.createSpy('keyEnterSpy').and.callFake($delegate);
