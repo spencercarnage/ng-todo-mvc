@@ -14,6 +14,5 @@ require('./routes/done/done.controller');
 require('./routes/active/active.controller');
 require('./todos/todos.directive');
 require('./todos/add.directive');
-require('./todos/markAllAsDone.directive');
 require('./todos/todos.controller');
 require('./todos/todo.directive');

@@ -5,6 +5,8 @@ function TodosController (todos, $state) {
   this.$state = $state;
   this.todoList = todos.getAll();
 
+  this.areAllDone = false;
+
   Object.defineProperties(this, {
     remainingCount: {
       get: function () {
@@ -40,8 +42,8 @@ TodosController.prototype.destroy = function (id) {
   this.todos.destroy(id);
 };
 
-TodosController.prototype.markAllAsDone = function (done) {
-  this.todos.markAllAsDone(done);
+TodosController.prototype.markAllAsDone = function () {
+  this.todos.setDoneStatusForAll(this.areAllDone);
 };
 
 TodosController.prototype.isStateActive = function (state) {

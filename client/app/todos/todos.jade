@@ -8,14 +8,10 @@ header#header
   )
 
 section#main
-  //-
-    div(
-      todos-mark-all-as-done='todosCtrl.markAllAsDone(done)',
-      ng-if='todosCtrl.todoList.length'
-    )
   input#toggle-all(
     type="checkbox"
-    ng-click="todosCtrl.markAllAsDone(true)"
+    ng-model="todosCtrl.areAllDone"
+    ng-change="todosCtrl.markAllAsDone()"
   )
 
   label(for='toggle-all') Mark all as complete
