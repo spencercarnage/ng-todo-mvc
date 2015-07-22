@@ -2,14 +2,16 @@
 
 function addDirective (keyEnter) {
   return {
-    //controller: 'TodosController',
-    //controllerAs: 'todosCtrl',
-    //bindToController: true,
+    scope: {
+      add: '&'
+    },
     link: function(scope, element, attrs) {
       element.on('keypress', function(e) {
         keyEnter(e, element, function() {
           scope.$apply(function() {
-            scope.todosCtrl.add(element.val());
+            scope.add({
+              description: element.val()
+            });
           });
 
           element.val('');

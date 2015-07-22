@@ -1,6 +1,6 @@
 'use strict';
 
-xdescribe('add directive', function () {
+describe('add directive', function () {
   beforeEach(angular.mock.module('TodoMVC', function ($provide) {
     $provide.decorator('TodoMVC.utils.keyEnter', function ($delegate) {
       return jasmine.createSpy('keyEnterSpy').and.callFake($delegate);
@@ -15,7 +15,8 @@ xdescribe('add directive', function () {
 
   describe('structure', function () {
     beforeEach(function () {
-      this.element = angular.element('<input add=""/>');
+      this.scope.add = jasmine.createSpy('addSpy');
+      this.element = angular.element('<input add="add(description)"/>');
       this.element = this.$compile(this.element)(this.scope);
       this.scope.$apply();
     });
@@ -32,6 +33,10 @@ xdescribe('add directive', function () {
 
       it('empties the element\'s value', function () {
         expect(this.element.val()).toBe('');
+      });
+
+      it('calls the scope.add', function () {
+        expect(this.scope.add).toHaveBeenCalledWith('test');
       });
     });
   });
