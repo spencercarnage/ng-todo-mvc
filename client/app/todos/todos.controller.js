@@ -6,14 +6,14 @@ function TodosController (todos, $state) {
   this.todoList = todos.getAll();
 
   Object.defineProperties(this, {
-    'remainingCount': {
+    remainingCount: {
       get: function () {
-        return todos.remainingCount;
+        return todos.getPendingCount();
       }
     },
-    'completedCount': {
+    doneCount: {
       get: function () {
-        return todos.completedCount;
+        return todos.getDoneCount();
       }
     },
     totalCount: {
@@ -25,23 +25,23 @@ function TodosController (todos, $state) {
 }
 
 TodosController.prototype.toggleTodoDone = function (todo) {
-  todo.completed = !todo.completed;
+  todo.done = !todo.done;
 };
 
 TodosController.prototype.add = function (description) {
   this.todos.add(description);
 };
 
-TodosController.prototype.clearCompleted = function () {
-  this.todos.clearCompleted();
+TodosController.prototype.clearDone = function () {
+  this.todos.clearDone();
 };
 
 TodosController.prototype.destroy = function (id) {
   this.todos.destroy(id);
 };
 
-TodosController.prototype.markAllAsCompleted = function (completed) {
-  this.todos.markAllAsCompleted(completed);
+TodosController.prototype.markAllAsDone = function (done) {
+  this.todos.markAllAsDone(done);
 };
 
 TodosController.prototype.isStateActive = function (state) {

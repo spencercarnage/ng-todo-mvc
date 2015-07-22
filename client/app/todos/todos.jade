@@ -35,7 +35,7 @@ footer#footer(ng-show='todosCtrl.totalCount')
     span(
       ng-pluralize='',
       count='todosCtrl.remainingCount',
-      when="{'one': 'item', 'other': 'items'}"
+      when="{'one': ' item', 'other': ' items'}"
     ) left
 
   ul#filters
@@ -57,7 +57,7 @@ footer#footer(ng-show='todosCtrl.totalCount')
         ui-sref='done'
       ) Done
 
-  button#clear-done(
+  button#clear-completed(
     ng-if='todosCtrl.doneCount',
     ng-click='todosCtrl.clearDone()'
-  ) Clear done ({{todosCtrl.doneCount}})
+  ) Clear completed ({{todosCtrl.doneCount}})

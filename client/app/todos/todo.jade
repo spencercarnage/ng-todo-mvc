@@ -1,8 +1,8 @@
 .view
   input.toggle(
     type='checkbox',
-    ng-checked='todo.completed',
-    ng-model='todo.completed'
+    ng-checked='todo.done',
+    ng-model='todo.done'
   )
 
   label(ng-dblclick='todo.editing = !todo.editing') {{todo.description}}

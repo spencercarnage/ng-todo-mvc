@@ -13,16 +13,16 @@ describe('TodosController', function () {
       this.todo = {};
     });
 
-    it('sets the todo to completed', function () {
-      this.todo.completed = false;
+    it('sets the todo to done', function () {
+      this.todo.done = false;
       this.ctrl.toggleTodoDone(this.todo);
-      expect(this.todo.completed).toBe(true);
+      expect(this.todo.done).toBe(true);
     });
 
-    it('sets the todo to uncompleted', function () {
-      this.todo.completed = true;
+    it('sets the todo to undone', function () {
+      this.todo.done = true;
       this.ctrl.toggleTodoDone(this.todo);
-      expect(this.todo.completed).toBe(false);
+      expect(this.todo.done).toBe(false);
     });
   });
 
