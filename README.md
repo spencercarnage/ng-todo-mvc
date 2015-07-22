@@ -13,3 +13,5 @@ To Do:
 * improve folder structure
 * more tests
 * test coverage
+* clicking toggle done button updates list
+* clicking toggle done button updates count
