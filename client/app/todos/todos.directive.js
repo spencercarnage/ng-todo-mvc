@@ -3,7 +3,8 @@
 function todosDirective () {
   return {
     scope: {
-      todoList: '=todos'
+      todoList: '=todos',
+      repopulateList: '&todosRepopulateList'
     },
     controller: 'TodosController',
     controllerAs: 'todosCtrl',

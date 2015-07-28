@@ -4,7 +4,9 @@ describe('TodosController', function () {
   beforeEach(angular.mock.module('TodoMVC'));
 
   beforeEach(inject(function ($controller, $injector) {
-    this.ctrl = $controller('TodosController');
+    var ctrlFn = $controller('TodosController', {}, true);
+    ctrlFn.instance.repopulateList = angular.noop;
+    this.ctrl = ctrlFn();
     this.todos = $injector.get('todos');
   }));
 
@@ -35,6 +37,21 @@ describe('TodosController', function () {
       var todo = {};
       this.ctrl.add(todo);
       expect(this.todos.add).toHaveBeenCalledWith(todo);
+    });
+  });
+
+  describe('markAllAsDone', function () {
+    it('updates the done status for all todos', function () {
+      spyOn(this.todos, 'setDoneStatusForAll');
+      this.ctrl.markAllAsDone();
+      expect(this.todos.setDoneStatusForAll)
+        .toHaveBeenCalledWith(this.ctrl.areAllDone);
+    });
+
+    it('repopulates the list of todos', function () {
+      spyOn(this.ctrl, 'repopulateList');
+      this.ctrl.markAllAsDone();
+      expect(this.ctrl.repopulateList).toHaveBeenCalled();
     });
   });
 });

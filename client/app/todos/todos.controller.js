@@ -44,6 +44,7 @@ TodosController.prototype.destroy = function (id) {
 
 TodosController.prototype.markAllAsDone = function () {
   this.todos.setDoneStatusForAll(this.areAllDone);
+  this.repopulateList();
 };
 
 TodosController.prototype.isStateActive = function (state) {

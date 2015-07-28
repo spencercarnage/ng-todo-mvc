@@ -2,7 +2,7 @@ angular.module("TodoMVC").run(["$templateCache", function ($templateCache) {
   'use strict';
 
   $templateCache.put('/app.html',
-    "<section id=\"todoapp\" todos=\"mainCtrl.todoList\"></section>"
+    "<section id=\"todoapp\" todos=\"mainCtrl.todoList\" todos-repopulate-list=\"mainCtrl.repopulateList()\"></section>"
   );
 
 

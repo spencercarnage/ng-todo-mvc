@@ -13,8 +13,12 @@ function BaseController (todos, $state, $scope) {
   $scope.$watch(function () {
     return todos.getAll().length;
   }, function () {
-    this.setTodos();
+    this.repopulateList();
   }.bind(this));
 }
+
+BaseController.prototype.repopulateList = function () {
+  this.setTodos();
+};
 
 module.exports = BaseController;

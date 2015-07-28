@@ -6,7 +6,7 @@ function ActiveController (todos, $state, $scope) {
   BaseController.call(this, todos, $state, $scope);
 }
 
-ActiveController.prototype = Object.create(BaseController);
+ActiveController.prototype = Object.create(BaseController.prototype);
 ActiveController.prototype.constructor = ActiveController;
 
 ActiveController.prototype.setTodos = function () {
