@@ -22,7 +22,7 @@ angular.module("TodoMVC").run(["$templateCache", function ($templateCache) {
 
 
   $templateCache.put('/todos/todo.html',
-    "<div class=\"view\"><input type=\"checkbox\" ng-checked=\"todo.done\" ng-model=\"todo.done\" class=\"toggle\"/><label ng-dblclick=\"todo.editing = !todo.editing\">{{todo.description}}</label><button ng-click=\"todosCtrl.destroy(todo.id)\" class=\"destroy\"></button><input ng-if=\"todo.editing\" value=\"{{todo.description}}\" todos-edit=\"todo\" ng-model=\"todo.description\" class=\"edit\"/></div>"
+    "<div class=\"view\"><input type=\"checkbox\" ng-checked=\"todo.done\" ng-model=\"todo.done\" ng-click=\"todosCtrl.repopulateList()\" class=\"toggle\"/><label ng-dblclick=\"todo.editing = !todo.editing\">{{todo.description}}</label><button ng-click=\"todosCtrl.destroy(todo.id)\" class=\"destroy\"></button><input ng-if=\"todo.editing\" value=\"{{todo.description}}\" todos-edit=\"todo\" ng-model=\"todo.description\" class=\"edit\"/></div>"
   );
 
 

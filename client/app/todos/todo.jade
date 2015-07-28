@@ -3,6 +3,7 @@
     type='checkbox',
     ng-checked='todo.done',
     ng-model='todo.done'
+    ng-click="todosCtrl.repopulateList()"
   )
 
   label(ng-dblclick='todo.editing = !todo.editing') {{todo.description}}
